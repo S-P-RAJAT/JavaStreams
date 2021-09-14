@@ -48,15 +48,17 @@ public class JavaStreamsMain {
         Integer sum = myNumberList.stream().reduce(0, Integer::sum);
         System.out.println("sum is " + sum);
         OptionalDouble average = myNumberList.stream().mapToInt(Integer::intValue).average();
-        System.out.println("average of list is " + average);
-
-
+        System.out.println("average of list is " + average.getAsDouble());
 
         boolean isAnyEven = myNumberList.stream()
 				.filter(isEvenFunction)
 				.anyMatch(isEvenFunction);
 
-        System.out.println("\nIs any even: " + isAnyEven);
+		boolean isAllEven = myNumberList.stream()
+				.filter(isEvenFunction)
+				.allMatch(isEvenFunction);
+
+        System.out.println("Is all even :" + isAllEven + "\nIs any even: " + isAnyEven);
 	}
 
 }
