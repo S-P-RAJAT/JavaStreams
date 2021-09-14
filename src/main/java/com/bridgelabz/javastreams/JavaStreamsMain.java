@@ -2,6 +2,7 @@ package com.bridgelabz.javastreams;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.OptionalDouble;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -43,6 +44,11 @@ public class JavaStreamsMain {
 				.max(Integer::compare)
 				.orElse(null);
 		System.out.println("Maximum even number is: "+maxEvenNumber);
+
+        Integer sum = myNumberList.stream().reduce(0, Integer::sum);
+        System.out.println("sum is " + sum);
+        OptionalDouble average = myNumberList.stream().mapToInt(Integer::intValue).average();
+        System.out.println("average of list is " + average);
 	}
 
 }
