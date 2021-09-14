@@ -24,6 +24,11 @@ public class JavaStreamsMain {
 
 		List<Integer> evenStreamList=myNumberList.stream().filter(isEvenFunction).collect(Collectors.toList());
 		System.out.println("Even number list is: "+evenStreamList);
+		Integer firstEvenNumber=myNumberList.stream()
+				.filter(isEvenFunction)
+				.findFirst()
+				.orElse(null);
+		System.out.println("The first even number is :"+firstEvenNumber);
 	}
 
 }
